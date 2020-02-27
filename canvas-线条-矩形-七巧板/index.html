@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 600;
+    canvas.height = 600;
+
+    const drawLine = ctx => {
+      // 画直线
+      // 的定义状态
+      // ctx.moveTo(100, 100);
+      // ctx.lineTo(200, 200);
+
+      // ctx.strokeStyle = 'red'; // 设置颜色
+      // ctx.lineWidth = '5'; // 设置 线条的宽度
+
+      // // 执行画图
+      // ctx.stroke();
+
+      // ctx.closePath();
+
+      // ctx.beginPath();
+      // ctx.moveTo(300, 150);
+      // ctx.lineTo(400, 150);
+      // ctx.strokeStyle = 'yellow';
+      // ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(200, 200);
+      ctx.lineTo(100, 200);
+
+      // ctx.strokeStyle = 'yellow';
+      ctx.closePath();
+      ctx.stroke();
+    };
+
+    // 画矩形
+    const drawRect = (ctx, move, line, color) => {
+      ctx.beginPath();
+      ctx.moveTo(move[0], move[1]);
+
+      line.forEach(point => {
+        ctx.lineTo(point[0], point[1]);
+      });
+
+      // 着色
+      ctx.fillStyle = color; // 填充的颜色用fillStyle
+      ctx.strokeStyle = 'balck';
+      ctx.lineWidth = 2;
+
+      ctx.closePath();
+
+      // 执行画图
+      ctx.fill(); // 填充的方法是fill()
+      ctx.stroke();
+    };
+
+    const pointInfo = [
+      {
+        move: [100, 100],
+        line: [
+          [500, 100],
+          [300, 300]
+        ],
+        color: 'red'
+      },
+      {
+        move: [100, 100],
+        line: [
+          [300, 300],
+          [100, 500]
+        ],
+        color: 'yellow'
+      },
+      {
+        move: [100, 500],
+        line: [
+          [300, 500],
+          [200, 400]
+        ],
+        color: 'green'
+      },
+      {
+        move: [200, 400],
+        line: [
+          [300, 300],
+          [400, 400],
+          [300, 500]
+        ],
+        color: 'blue'
+      },
+      {
+        move: [300, 300],
+        line: [
+          [400, 200],
+          [400, 400]
+        ],
+        color: 'pink'
+      },
+      {
+        move: [300, 500],
+        line: [
+          [500, 500],
+          [500, 300]
+        ],
+        color: 'black'
+      },
+      {
+        move: [500, 100],
+        line: [
+          [500, 300],
+          [400, 400],
+          [400, 200]
+        ],
+        color: 'gray'
+      }
+    ];
+
+    const drawSevenRect = (ctx, pointInfo) => {
+      pointInfo.forEach(info => {
+        const { move, line, color } = info || {};
+
+        drawRect(ctx, move, line, color);
+      });
+    };
+
+    drawSevenRect(ctx, pointInfo);
+    // drawLine(ctx);
+  </script>
+</html>

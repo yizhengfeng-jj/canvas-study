@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="demo"></canvas>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('demo');
+    canvas.width = 600;
+    canvas.height = 600;
+
+    const ctx = canvas.getContext('2d');
+
+    const drawLineGradient = ctx => {
+      const lineStyle = ctx.createLinearGradient(0, 0, 400, 400);
+
+      lineStyle.addColorStop(0.0, 'white');
+      lineStyle.addColorStop(0.25, 'red');
+      lineStyle.addColorStop(0.5, 'green');
+      lineStyle.addColorStop(0.75, 'blue');
+      lineStyle.addColorStop(1.0, 'yellow');
+
+      ctx.fillStyle = lineStyle;
+
+      ctx.fillRect(0, 0, 400, 400);
+    };
+
+    // 径向渐变
+    const drawRadialGradient = ctx => {
+      const radialGradient = ctx.createRadialGradient(
+        300,
+        300,
+        50,
+        300,
+        300,
+        300
+      );
+
+      radialGradient.addColorStop(0.0, 'black');
+      radialGradient.addColorStop(0.25, 'red');
+      radialGradient.addColorStop(0.5, 'green');
+      radialGradient.addColorStop(0.75, 'blue');
+      radialGradient.addColorStop(1.0, 'yellow'); // 最后四个角的颜色是黄色，可以打印看下
+
+      ctx.fillStyle = radialGradient;
+      ctx.fillRect(0, 0, 600, 600);
+    };
+
+    drawRadialGradient(ctx);
+  </script>
+</html>

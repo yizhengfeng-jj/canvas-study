@@ -3,7 +3,7 @@
 #### 解释1
 图像的变化一般都是以下几个
 - translate(x, y) 水平和垂直的位置
-- remote(ang) 旋转角度
+- rotate(ang) 旋转角度
 - scale(sx,sy) 水平和垂直的缩放
 
 #### 解释2

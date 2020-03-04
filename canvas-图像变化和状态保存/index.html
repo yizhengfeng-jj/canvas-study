@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="demo"></canvas>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('demo');
+
+    canvas.width = 600;
+    canvas.height = 600;
+
+    const ctx = canvas.getContext('2d');
+
+    ctx.save();
+    ctx.fillStyle = 'red';
+    ctx.translate(50, 50); // 移动50，50
+    ctx.fillRect(100, 100, 100, 100);
+    ctx.restore();
+
+    ctx.save();
+    ctx.translate(100, 100);
+    ctx.fillStyle = 'green';
+    ctx.fillRect(100, 100, 100, 100);
+    ctx.restore();
+  </script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="demo"></canvas>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('demo');
+
+    canvas.width = 600 * 4;
+    canvas.height = 600 * 4;
+    canvas.style.width = '600px';
+    canvas.style.height = '600px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(4, 4); // 防止失真
+
+    ctx.moveTo(100, 200);
+    // ctx.quadraticCurveTo(200, 100, 300, 200); // 二次曲线
+    ctx.bezierCurveTo(150, 100, 200, 100, 300, 200);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+  </script>
+</html>

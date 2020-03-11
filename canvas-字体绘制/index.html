@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="demo"></canvas>
+    </div>
+  </body>
+
+  <script>
+    const canvas = document.getElementById('demo');
+
+    canvas.width = 600;
+    canvas.height = 600;
+
+    const ctx = canvas.getContext('2d');
+
+    ctx.font = '50px 楷体';
+    ctx.fillText('我是json, 学习canvas', 100, 50);
+
+    ctx.beginPath();
+    ctx.font = '50px 楷体';
+    ctx.strokeText('我是json, 学习canvas', 100, 100);
+
+    ctx.beginPath();
+    const linerColor = ctx.createLinearGradient(100, 150, 600, 150);
+
+    linerColor.addColorStop(0.0, 'yellow');
+    linerColor.addColorStop(0.25, 'red');
+    linerColor.addColorStop(0.5, 'blue');
+    linerColor.addColorStop(0.75, 'black');
+    linerColor.addColorStop(1.0, 'green');
+
+    ctx.strokeStyle = linerColor;
+    ctx.font = 'oblique small-caps bold 50px 楷体';
+    ctx.strokeText('我是json, 学习canvas', 100, 150);
+  </script>
+</html>

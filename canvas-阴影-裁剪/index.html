@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="demo"></canvas>
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('demo');
+
+    canvas.width = 600 * 4;
+    canvas.height = 600 * 4;
+    canvas.style.width = '600px';
+    canvas.style.height = '600px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(4, 4);
+    ctx.save();
+    ctx.shadowColor = 'red';
+    ctx.shadowOffsetX = 20;
+    ctx.shadowOffsetY = 20;
+    ctx.shadowBlur = 10;
+
+    ctx.fillRect(100, 100, 100, 100);
+
+    ctx.beginPath();
+    ctx.font = '50px 楷体';
+
+    ctx.shadowColor = 'gray';
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 5;
+
+    ctx.fillText('大家好，我叫json', 100, 150);
+    ctx.restore();
+
+    // 裁剪
+    ctx.beginPath();
+    ctx.fillStyle = '#000';
+    ctx.fillRect(100, 100, 400, 400);
+
+    ctx.arc(200, 200, 50, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    ctx.clip();
+
+    ctx.font = '50px 楷体';
+    ctx.fillStyle = 'red';
+    ctx.fillText('你好我是json,很高兴认识你', 150, 200);
+  </script>
+</html>
